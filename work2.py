@@ -15,6 +15,7 @@ browser.get(url2)
 # 轉換json檔案
 data = html.json()
 # 查找元素
+period = ''
 datalist = data['content']['superLotto638Res']
 lottery = year+'-'+month+'-'+day+'T00:00:00'
 for i in range(len(datalist)):
@@ -23,7 +24,9 @@ for i in range(len(datalist)):
         num = datalist[i]['drawNumberSize']
         print('開獎號碼 : ',end='')
         print(*num)
-# 自動輸入開獎期別
-browser.find_element(By.ID,'el-id-1024-8').send_keys(period)
-browser.find_element(By.XPATH,'//*[@id="__nuxt"]/main/div[1]/div[2]/div/button').click()
-time.sleep(10)
+        # 自動輸入開獎期別
+        browser.find_element(By.ID,'el-id-1024-8').send_keys(period)
+        browser.find_element(By.XPATH,'//*[@id="__nuxt"]/main/div[1]/div[2]/div/button').click()
+        time.sleep(15)
+if period == '':
+    print('查無此期別')
