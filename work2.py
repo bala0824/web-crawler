@@ -25,7 +25,7 @@ for i in range(len(datalist)):
         print('開獎號碼 : ',end='')
         print(*num)
         # 自動輸入開獎期別
-        browser.find_element(By.XPATH,'//*[@id="el-id-1024-8"]').send_keys(period)
+        browser.find_element(By.XPATH,'/html/body/div[2]/main/div[1]/div[2]/form/div[3]/div/div/div/input').send_keys(period)
         browser.find_element(By.XPATH,'//*[@id="__nuxt"]/main/div[1]/div[2]/div/button').click()
         time.sleep(15)
 if period == '':
